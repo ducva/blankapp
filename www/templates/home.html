@@ -1,3 +1,105 @@
 <ion-view>
-  Hello {{model.name}}
+  <ion-header-bar align-title="left" class="bar-positive">
+    <div class="buttons">
+      <button class="button button-icon icon ion-social-nodejs"></button>
+    </div>
+    <h1 class="title">Landing Page</h1>
+    <div class="buttons">
+      <button class="button button-icon icon ion-person"></button>
+      <button class="button button-icon icon ion-ios-cart"></button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content ng-controller="HomeCtrl">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <!-- Search form -->
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="I'm looking for...">
+        </label>
+        <button class="button button-icon icon ion-search">
+
+        </button>
+      </div>
+    </div>
+
+    <!-- Banner -->
+    <ion-slides class="hotcategory">
+      <ion-slide-page ng-repeat="banner in model.banners" >
+        <img class="full-image" ng-src="{{banner.image}}">
+      </ion-slide-page>
+    </ion-slides>
+
+    <!-- hot categories -->
+
+
+    <div class="list card">
+      <div class="item item-button-right">
+        Fashion
+
+        <button class="button button-clear">
+          <a class="button-clear icon-right">See all</a>
+          <i class="icon ion-chevron-right"></i>
+        </button>
+      </div>
+
+
+      <div class="row">
+        <div class="col" ng-repeat="(index, hotCat) in model.hotCategories">
+          <div  class="item item-image pCategorySprite" style="background-image:url('http://p.ebaystatic.com/aw/mobile/mobileWeb/popular_categories/spr/us-w188x178-q50-v1.jpg');background-position:0 -{{hotCat.position * 89}}px;">
+          </div>
+          <p>
+            <a href="#" class="subdued">{{hotCat.title}}</a>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- menu -->
+    <div class="item-divider">
+    <a class="item item-icon-left item-icon-right" href="#">
+      <i class="icon ion-ios-keypad"></i>
+      All Categories
+      <i class="icon ion-chevron-right"></i>
+    </a>
+    </div>
+    <div class="list">
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-home"></i>
+        Home
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-person"></i>
+        My eBay
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-edit"></i>
+        Sign in/Register
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-pricetag"></i>
+        Sell an item
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-help"></i>
+        Help & Contact
+      </a>
+
+
+      </div>
+
+  </ion-content>
 </ion-view>
