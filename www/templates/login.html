@@ -2,19 +2,19 @@
   <ion-content>
     <div class="list">
       <label class="item item-input">
-        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Username" ng-model="model.loginData.username" name="username">
       </label>
       <label class="item item-input">
         <input type="password" placeholder="Password"
                name="senha"
-               ng-model="userModel.senha"/>
+               ng-model="model.loginData.password"/>
       </label>
 
-      <button class="button button-block button-positive">
+      <button class="button button-block button-positive" ng-click="login()">
         Sign In
       </button>
       <div class="item item-input-inset">
-        <ion-checkbox ng-model="isChecked">Stay Signed In</ion-checkbox>
+        <ion-checkbox ng-model="model.loginData.isStayedIn">Stay Signed In</ion-checkbox>
         <a >
           Forgot your password
         </a>

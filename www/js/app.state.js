@@ -34,5 +34,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     }
   });
 
+  $stateProvider.state('profile', {
+    url: '/profile',
+    templateUrl: 'templates/profile.html',
+    controller: 'ProfileCtrl',
+    params: {
+      'userData': null
+    }
+  })
+
   $urlRouterProvider.otherwise('/home');
 });
