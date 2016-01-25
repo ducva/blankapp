@@ -1,14 +1,5 @@
 <ion-view>
-  <ion-header-bar align-title="left" class="bar-positive">
-    <div class="buttons">
-      <button class="button button-icon icon ion-social-nodejs"></button>
-    </div>
-    <h1 class="title">Landing Page</h1>
-    <div class="buttons">
-      <button class="button button-icon icon ion-person"></button>
-      <button class="button button-icon icon ion-ios-cart"></button>
-    </div>
-  </ion-header-bar>
+
 
   <ion-content ng-controller="HomeCtrl">
     <ion-refresher
@@ -51,12 +42,14 @@
 
       <div class="row">
         <div class="col" ng-repeat="(index, hotCat) in model.hotCategories">
-          <div  class="item item-image pCategorySprite" style="background-image:url('http://p.ebaystatic.com/aw/mobile/mobileWeb/popular_categories/spr/us-w188x178-q50-v1.jpg');background-position:0 -{{hotCat.position * 89}}px;">
+          <a href="#">
+          <div  class="item item-image pCategorySprite" style="background-image:url('{{hotCat.background}}');background-position:0 -{{hotCat.position * 89}}px">
           </div>
           <p>
             <a href="#" class="subdued">{{hotCat.title}}</a>
           </p>
         </div>
+        </a>
 
       </div>
 
@@ -83,7 +76,7 @@
         My eBay
       </a>
 
-      <a class="item item-icon-left" href="#">
+      <a class="item item-icon-left" ui-sref="signin.register">
         <i class="icon ion-edit"></i>
         Sign in/Register
       </a>

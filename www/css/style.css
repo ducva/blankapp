@@ -4,3 +4,8 @@
 .hotcategory{
   height: 220px;
 }
+
+
+.item-checkbox{
+  border:none;
+}

@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Username">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password"
+               name="senha"
+               ng-model="userModel.senha"/>
+      </label>
+
+      <button class="button button-block button-positive">
+        Sign In
+      </button>
+      <div class="item item-input-inset">
+        <ion-checkbox ng-model="isChecked">Stay Signed In</ion-checkbox>
+        <a >
+          Forgot your password
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
