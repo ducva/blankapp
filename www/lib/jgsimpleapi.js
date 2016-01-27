@@ -48,9 +48,7 @@ angular.module('jgSimpleApi', ['ngResource'])
           post: {
             method: 'POST',
             callback: 'JSON_CALLBACK',
-            params: {
-              callback: 'JSON_CALLBACK'
-            }
+            params: parameters
           }
         });
 

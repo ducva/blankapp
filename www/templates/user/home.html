@@ -1,12 +1,5 @@
 <ion-view>
-
-
   <ion-content ng-controller="HomeCtrl">
-    <ion-refresher
-      pulling-text="Pull to refresh..."
-      on-refresh="doRefresh()">
-    </ion-refresher>
-
     <!-- Search form -->
     <div class="list">
       <div class="item item-input-inset">
@@ -76,7 +69,7 @@
         My eBay
       </a>
 
-      <a class="item item-icon-left" ui-sref="signin.login">
+      <a class="item item-icon-left" ui-sref="tab.login">
         <i class="icon ion-edit"></i>
         Sign in/Register
       </a>

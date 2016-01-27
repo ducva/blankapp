@@ -4,44 +4,50 @@
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
-  $stateProvider.state('home', {
-      url: '/home',
-      templateUrl: 'templates/home.html',
-      controller: 'HomeCtrl'
-    });
+  $stateProvider.state('public', {
+    url: '',
+    templateUrl: 'templates/public.html',
+    abstract: true
+  });
 
-  $stateProvider.state('signin', {
-      url: '/signin',
-      templateUrl: 'templates/signin.html'
-    });
-  $stateProvider.state('signin.register', {
-      url: '/register',
-      views: {
-        'register-tab': {
-          templateUrl: 'templates/register.html',
-          controller: 'SignUpCtrl'
-        }
-      }
-    });
-
-  $stateProvider.state('signin.login', {
+  $stateProvider.state('public.login', {
     url: '/login',
-    views: {
-      'login-tab': {
-        templateUrl: 'templates/login.html',
-        controller: 'LogInCtrl'
-      }
+    templateUrl: 'templates/login.html',
+    controller: 'LogInCtrl'
+  });
+
+  $stateProvider.state('public.register', {
+    url: '/register',
+    templateUrl: 'templates/register.html',
+    controller: 'SignUpCtrl'
+  });
+
+  $stateProvider.state('user', {
+    url: '/user',
+    abstract:true,
+    templateUrl: 'templates/user/user.html'
+  });
+
+  $stateProvider.state('user.dashboard', {
+    url:'/dashboard',
+    templateUrl: 'templates/user/dashboard.html',
+    controller: 'UserCtrl',
+    params: {
+      'fullname':null
     }
   });
 
-  $stateProvider.state('profile', {
-    url: '/profile',
-    templateUrl: 'templates/profile.html',
-    controller: 'ProfileCtrl',
-    params: {
-      'userData': null
-    }
-  })
+  $stateProvider.state('user.home', {
+    url: '/home',
+    templateUrl: 'templates/user/home.html',
+    controller: 'HomeCtrl'
+  });
 
-  $urlRouterProvider.otherwise('/home');
+  $stateProvider.state('user.orders', {
+    url: '/orders',
+    templateUrl: 'templates/user/orders.html',
+    controller: 'OrderCtrl'
+  });
+
+  $urlRouterProvider.otherwise('/login');
 });

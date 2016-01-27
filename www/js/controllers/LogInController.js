@@ -1,29 +1,21 @@
 /**
  * Created by michael on 25/01/2016.
  */
-controllers.controller('LogInCtrl', ['$scope', '$state', 'authService', function($scope, $state, authService) {
+controllers.controller('LogInCtrl', function($scope, $state, AuthService, $ionicPopup) {
   $scope.model = {};
+  $scope.user = {
+    username: '',
+    password: ''
+  };
 
-  $scope.login = function(){
-    var loginData = $scope.model.loginData;
-
-    authService.login(loginData).then(function(response){
-      console.debug(response);
-      if(response.isSuccess){
-        console.debug(response.msg);
-        var userData = {
-          "username": "admin",
-          "userrole": "admin",
-          "fullname": 'Vu Anh Duc'
-        }
-        $state.go('profile', {'userData': userData});
-      }
-      else{
-        console.debug("Logged In failed");
-      }
+  $scope.login = function() {
+    AuthService.login($scope.user).then(function(data) {
+      $state.go('user.dashboard', {fullname:data.fullname});
+    }, function(errMsg) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Login failed!',
+        template: errMsg
+      });
     });
-
-
-  }
-
-}]);
+  };
+});

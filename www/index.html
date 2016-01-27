@@ -27,27 +27,15 @@
     <!-- Third party lib -->
     <script src="lib/jgsimpleapi.js"></script>
     <script src="js/services/authService.js"></script>
+    <script src="js/services/order_service.js"></script>
 
-    <script src="js/controllers/HomeController.js"></script>
-    <script src="js/controllers/SignUpController.js"></script>
     <script src="js/controllers/LogInController.js"></script>
-    <script src="js/controllers/ProfileController.js"></script>
-
+    <script src="js/controllers/SignUpController.js"></script>
+    <script src="js/controllers/user_controller.js"></script>
+    <script src="js/controllers/HomeController.js"></script>
+    <script src="js/controllers/order_controller.js"></script>
   </head>
   <body ng-app="starter">
-
-   <ion-nav-view>
-     <ion-header-bar align-title="left" class="bar-positive">
-       <div class="buttons">
-         <button class="button button-icon icon ion-social-nodejs"></button>
-       </div>
-       <h1 class="title">Landing Page</h1>
-       <div class="buttons">
-         <button class="button button-icon icon ion-person"></button>
-         <button class="button button-icon icon ion-ios-cart"></button>
-       </div>
-     </ion-header-bar>
-
-   </ion-nav-view>
+  <ui-view></ui-view>
   </body>
 </html>

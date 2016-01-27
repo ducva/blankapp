@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-content>
+    <div class="list">
+      <div class="card" ng-repeat="order in orders">
+        <div class="item item-divider">
+          Order No #{{order.orderId}}
+        </div>
+        <div class="item item-text-wrap">
+          Order Date: {{order.orderDate}}
+        </div>
+        <div class="item item-divider">
+          Order Amount: {{order.orderAmount}}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
